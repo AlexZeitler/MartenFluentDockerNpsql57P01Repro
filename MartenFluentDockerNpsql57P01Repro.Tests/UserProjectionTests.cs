@@ -35,7 +35,7 @@ public class UserProjectionTests
     var container = service.Start();
 
     var PgTestConnectionString =
-      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
+      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = False; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
     using var store = DocumentStore.For(
       options =>
       {
@@ -62,7 +62,8 @@ public class UserProjectionTests
 
 
     var user = session.Load<User>(id);
-    await session.Connection?.CloseAsync();
+    session.Connection.Close();
+    session.Connection.Dispose();
     service.Stop();
     Assert.Equal(
       username,
@@ -93,7 +94,7 @@ public class UserProjectionTests
     var container = service.Start();
 
     var PgTestConnectionString =
-      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
+      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = False; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
     using var store = DocumentStore.For(
       options =>
       {
@@ -120,7 +121,8 @@ public class UserProjectionTests
 
 
     var user = session.Load<User>(id);
-    await session.Connection?.CloseAsync();
+    session.Connection.Close();
+    session.Connection.Dispose();
     service.Stop();
     Assert.Equal(
       username,

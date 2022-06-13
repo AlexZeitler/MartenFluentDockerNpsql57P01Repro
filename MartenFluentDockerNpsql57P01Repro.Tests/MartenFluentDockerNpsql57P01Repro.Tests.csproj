@@ -27,7 +27,7 @@
     <ItemGroup>
       <None Remove="Resources\docker-compose.yml" />
       <Content Include="Resources\docker-compose.yml">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <None Remove="xunit.runner.json" />
       <Content Include="xunit.runner.json">
