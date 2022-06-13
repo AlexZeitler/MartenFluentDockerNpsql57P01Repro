@@ -27,8 +27,8 @@ public class UserProjectionTests
       .RemoveOrphans()
       .ForceRecreate()
       .WaitForPort(
-        "",
-        "5433",
+        "database",
+        "5433/tcp",
         30000 /*30s*/
       )
       .Build();
@@ -85,8 +85,8 @@ public class UserProjectionTests
       .RemoveOrphans()
       .ForceRecreate()
       .WaitForPort(
-        "",
-        "5433",
+        "database",
+        "5433/tcp",
         30000 /*30s*/
       )
       .Build();
