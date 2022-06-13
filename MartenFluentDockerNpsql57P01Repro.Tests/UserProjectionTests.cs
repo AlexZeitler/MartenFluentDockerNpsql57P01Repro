@@ -28,14 +28,14 @@ public class UserProjectionTests
       .ForceRecreate()
       .WaitForPort(
         "database",
-        "5433/tcp",
+        "5432/tcp",
         30000 /*30s*/
       )
       .Build();
     var container = service.Start();
 
     var PgTestConnectionString =
-      "PORT = 5433; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
+      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
     using var store = DocumentStore.For(
       options =>
       {
@@ -86,14 +86,14 @@ public class UserProjectionTests
       .ForceRecreate()
       .WaitForPort(
         "database",
-        "5433/tcp",
+        "5432/tcp",
         30000 /*30s*/
       )
       .Build();
     var container = service.Start();
 
     var PgTestConnectionString =
-      "PORT = 5433; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
+      "PORT = 5432; HOST = localhost; TIMEOUT = 15; POOLING = True; MINPOOLSIZE = 1; MAXPOOLSIZE = 100; COMMANDTIMEOUT = 20; DATABASE = 'marten'; PASSWORD = '123456'; USER ID = 'marten'";
     using var store = DocumentStore.For(
       options =>
       {
